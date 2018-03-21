@@ -1,0 +1,67 @@
+{
+  "name": "react-statements",
+  "version": "0.0.1",
+  "description": "Declarative statement (if-else / for / try-catch) components for React",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src",
+    "index.d.ts"
+  ],
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yenshih/react-statements.git"
+  },
+  "keywords": [],
+  "authors": [
+    "Shi Yan <yenshih95@gmail.com> (https://github.com/yenshih)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yenshih/react-statements/issues"
+  },
+  "npmName": "react-statements",
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "mapCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "test"
+    ],
+    "testURL": "https://localhost",
+    "silent": true
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.0.40",
+    "@types/react-dom": "^16.0.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.8.0",
+    "typescript": "^2.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "browserify": {
+    "transform": [
+      "loose-envify"
+    ]
+  }
+}
