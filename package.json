@@ -1,5 +1,5 @@
 {
-  "name": "react-statements",
+  "name": "react-statement",
   "version": "0.0.1",
   "description": "Declarative statement (if-else / for / try-catch) components for React",
   "main": "lib/index.js",
@@ -13,6 +13,7 @@
     "index.d.ts"
   ],
   "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx && tslint -p ."
   },
   "repository": {
     "type": "git",
@@ -47,13 +48,20 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/react": "^16.0.40",
-    "@types/react-dom": "^16.0.4",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.8.0",
-    "typescript": "^2.7.2"
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "eslint": "^5.1.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-react": "^7.10.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.9.2",
+    "typescript-eslint-parser": "^16.0.1"
   },
   "peerDependencies": {
     "react": "^16.0.0",

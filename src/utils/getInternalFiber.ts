@@ -1,9 +1,13 @@
 import { Component } from 'react';
 
-export const getInternalFiber = (instance: Component) => {
+const getInternalFiber = (instance: Component) => {
     const internalFiberKey = Object.keys(instance).find(key => key.startsWith('_reactInternalFiber'));
+
     if (!internalFiberKey) {
-        return;
+        return null;
     }
+
     return (instance as any)[internalFiberKey];
 };
+
+export default getInternalFiber;

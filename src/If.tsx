@@ -7,22 +7,24 @@ interface IfProps {
 }
 
 class If extends PureComponent<IfProps> {
-    public componentDidMount() {
+    componentDidMount() {
         this.updateInternalCondition();
     }
 
-    public componentDidUpdate() {
+    componentDidUpdate() {
         this.updateInternalCondition();
     }
 
     private updateInternalCondition() {
         const { condition } = this.props;
         const current = getInternalFiber(this);
+
         return condition ? disableSiblingBranch(current) : enableSiblingBranch(current);
     }
 
-    public render() {
+    render() {
         const { condition, children } = this.props;
+
         return condition ? children : null;
     }
 }

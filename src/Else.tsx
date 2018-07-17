@@ -5,13 +5,14 @@ interface ElseState {
 }
 
 class Else extends PureComponent<{}, ElseState> {
-    public readonly state: ElseState = {
+    readonly state: ElseState = {
         internalCondition: false,
     };
 
-    public render() {
+    render() {
         const { children } = this.props;
         const { internalCondition } = this.state;
+
         return internalCondition ? children : null;
     }
 }
