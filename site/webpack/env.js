@@ -14,11 +14,9 @@ const entry = {
     include: new RegExp(entryDirname),
 };
 
-const outputDirname = 'docs';
-const contextDirname = 'react-statement';
 const output = {
-    path: resolve(__dirname, '..', '..', outputDirname),
-    publicPath: `/${contextDirname}/${outputDirname}`,
+    path: resolve(__dirname, '..', '..', 'docs'),
+    publicPath: '/react-statement',
 };
 
 const dllDirname = 'dll';
