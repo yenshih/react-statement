@@ -1,9 +1,13 @@
 {
     "parser": "typescript-eslint-parser",
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
     "plugins": [
+        "babel",
         "import",
         "react"
     ],
@@ -303,7 +307,7 @@
             "optionalDependencies": true,
             "peerDependencies": true
         }],
-        "import/no-internal-modules": ["error"],
+        "import/no-internal-modules": "off",
         "import/no-mutable-exports": "error",
         "import/no-named-as-default": "error",
         "import/no-named-as-default-member": "error",
@@ -315,7 +319,7 @@
                 {"target": "./src", "from": "./test"}
             ]
         }],
-        "import/no-unassigned-import": ["error"],
+        "import/no-unassigned-import": "error",
         "import/no-unresolved": "error",
         "import/no-useless-path-segments": "error",
         "import/no-webpack-loader-syntax": "error",
@@ -458,8 +462,9 @@
             }
         }
     },  {
-        "files": ["*.config.js"],
+        "files": ["*.config.js", "docs/webpack/*.js"],
         "rules": {
+            "import/newline-after-import": "off",
             "import/no-commonjs": "off",
             "import/no-dynamic-require": "off",
             "import/no-nodejs-modules": "off"

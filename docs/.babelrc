@@ -1,0 +1,39 @@
+{
+    "plugins": [
+        "syntax-dynamic-import",
+        "dynamic-import-webpack",
+        ["import", {
+            "libraryName": "antd",
+            "libraryDirectory": "es",
+            "style": true
+        }]
+    ],
+    "env": {
+        "development": {
+            "presets": [
+                ["env", {
+                    "modules": false,
+                    "targets": {
+                        "chrome": 60
+                    }
+                }]
+            ]
+        },
+        "production": {
+            "presets": [
+                ["env", {
+                    "modules": false,
+                    "targets": {
+                        "ie": 10
+                    }
+                }],
+                "react-optimize"
+            ],
+            "plugins": [
+                ["transform-runtime", {
+                    "polyfill": false
+                }]
+            ]
+        }
+    }
+}
