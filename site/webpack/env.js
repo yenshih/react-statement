@@ -15,9 +15,10 @@ const entry = {
 };
 
 const outputDirname = 'docs';
+const contextDirname = 'react-statement';
 const output = {
     path: resolve(__dirname, '..', '..', outputDirname),
-    publicPath: `/${outputDirname}`,
+    publicPath: `/${contextDirname}/${outputDirname}`,
 };
 
 const dllDirname = 'dll';
