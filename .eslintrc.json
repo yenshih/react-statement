@@ -462,7 +462,7 @@
             }
         }
     },  {
-        "files": ["*.config.js", "docs/webpack/*.js"],
+        "files": ["*.config.js", "**/webpack/*.js"],
         "rules": {
             "import/newline-after-import": "off",
             "import/no-commonjs": "off",

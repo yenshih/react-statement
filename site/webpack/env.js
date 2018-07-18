@@ -14,11 +14,10 @@ const entry = {
     include: new RegExp(entryDirname),
 };
 
-const outputDirname = 'dist';
-const contextDirname = 'docs';
+const outputDirname = 'docs';
 const output = {
-    path: resolve(__dirname, '..', outputDirname),
-    publicPath: `/${contextDirname}/${outputDirname}`,
+    path: resolve(__dirname, '..', '..', outputDirname),
+    publicPath: `/${outputDirname}`,
 };
 
 const dllDirname = 'dll';
