@@ -1,3 +1,5 @@
+const {resolve} = require('path');
+
 const {
     HashedModuleIdsPlugin,
     optimize: {
@@ -5,6 +7,7 @@ const {
     },
 } = require('webpack');
 
+const CleanPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
@@ -48,6 +51,10 @@ module.exports = {
         ],
     },
     plugins: [
+        new CleanPlugin(['docs'], {
+            root: resolve(__dirname, '..', '..'),
+            verbose: false,
+        }),
         new HashedModuleIdsPlugin(),
         new AggressiveMergingPlugin(),
         new UglifyJsPlugin({
