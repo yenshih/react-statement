@@ -1,6 +1,6 @@
 {
   "name": "react-statement",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Declarative statement (if-else / for / try-catch) components for React",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -21,7 +21,7 @@
     "build:es": "tsc --outDir es -d",
     "build:commonjs": "tsc -m commonjs --outDir lib",
     "build": "npm-run-all -p build:*",
-    "prepare": "npm run clean && npm run lint && npm run test && npm run build"
+    "prepare": "npm run clean && npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
@@ -52,6 +52,7 @@
     "react-dom": "^16.4.1",
     "stylelint": "^9.3.0",
     "stylelint-order": "^0.8.1",
+    "ts-jest": "^23.0.1",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
     "tslint-react": "^3.6.0",
