@@ -68,6 +68,16 @@ module.exports = {
                 removeAttributeQuotes: true,
             },
         }),
+        new HtmlPlugin({
+            template: `${entry.dirname}/404.ejs`,
+            filename: '404.html',
+            inject: false,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true,
+            },
+        }),
         new InlineManifestPlugin(),
         new UnusedFilesPlugin({
             patterns: `${entry.dirname}/**/*.*`,
