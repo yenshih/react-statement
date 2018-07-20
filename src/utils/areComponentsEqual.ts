@@ -1,0 +1,29 @@
+import { ReactType } from 'react';
+
+const areComponentsEqual = (alice: ReactType, bob: ReactType) => {
+    if (!module.hot || process.env.NODE_ENV === 'production') {
+        return alice === bob;
+    }
+
+    const unwrapProxy = (type: ReactType) => {
+
+        /**
+         * Call a magic method to get the original component.
+         *
+         * @see {@link https://github.com/gaearon/react-hot-loader/blob/master/src/proxy/createClassProxy.js}
+         */
+        const PREFIX = '__reactstandin__';
+        const UNWRAP_PROXY = `${PREFIX}getCurrent`;
+
+        return typeof (type as any)[UNWRAP_PROXY] === 'function' ? (type as any)[UNWRAP_PROXY]() : type;
+    };
+
+    /**
+     * We try to unwrap both components since react-hot-loader may create proxied versions components.
+     *
+     * @see {@link https://github.com/gaearon/react-hot-loader#checking-element-types}
+     */
+    return unwrapProxy(alice) === unwrapProxy(bob);
+};
+
+export default areComponentsEqual;

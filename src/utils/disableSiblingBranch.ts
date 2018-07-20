@@ -1,6 +1,10 @@
 import { ElseIf, Else } from '..';
 
-const disableSiblingBranch = (current: any) => {
+import { Fiber } from '../types';
+
+import { areComponentsEqual } from '.';
+
+const disableSiblingBranch = (current: Fiber) => {
 
     /*
      * This branch is currently being enabled.
@@ -9,21 +13,24 @@ const disableSiblingBranch = (current: any) => {
      */
     let child = current.sibling;
 
-    while (child) {
-        if (child.type !== ElseIf && child.type !== Else) {
-            return;
-        }
-        if (child.memoizedState.internalCondition) {
-            const instance = child.stateNode;
+    while (child && areComponentsEqual(child.type, ElseIf)) {
+        const instance: ElseIf = child.stateNode;
 
-            instance.setState((state: any) => ({ ...state, internalCondition: false }));
+        if (instance.state.internalCondition) {
+            instance.setState(state => ({ ...state, internalCondition: false }));
 
             return;
         }
-        if (child.type === Else) {
-            return;
-        }
+
         child = child.sibling;
+    }
+
+    if (child && areComponentsEqual(child.type, Else)) {
+        const instance: Else = child.stateNode;
+
+        if (instance.state.internalCondition) {
+            instance.setState(state => ({ ...state, internalCondition: false }));
+        }
     }
 };
 

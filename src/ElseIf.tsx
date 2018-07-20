@@ -16,7 +16,9 @@ class ElseIf extends PureComponent<ElseIfProps, ElseIfState> {
     };
 
     componentDidMount() {
-        this.updateInternalCondition();
+        const { condition } = this.props;
+
+        condition && this.updateInternalCondition();
     }
 
     componentDidUpdate({ condition: prevCondition }: ElseIfProps) {
@@ -34,11 +36,13 @@ class ElseIf extends PureComponent<ElseIfProps, ElseIfState> {
             // It doesn't make sense to this `ElseIf` branch, skip it.
             return;
         }
+
         if (condition) {
             this.setState(state => ({ ...state, internalCondition: true }));
 
             disableSiblingBranch(current);
         }
+
         if (internalCondition) {
             this.setState(state => ({ ...state, internalCondition: false }));
 

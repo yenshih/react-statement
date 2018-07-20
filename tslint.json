@@ -6,6 +6,7 @@
     ],
     "rules": {
         "align": [true, "parameters", "statements", "members"],
+        "brace-style": [true, "stroustrup"],
         "import-name": [false],
         "interface-name": [true, "never-prefix"],
         "jsx-boolean-value": [true, "never"],
@@ -19,6 +20,7 @@
         "no-submodule-imports": [false],
         "no-unused-expression": [true, "allow-fast-null-checks"],
         "object-literal-sort-keys": [false],
+        "one-line": [false],
         "ordered-imports": [false],
         "prefer-array-literal": [false],
         "strict-boolean-expressions": [false],
