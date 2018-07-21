@@ -1,9 +1,6 @@
-import If from './If';
-import ElseIf from './ElseIf';
-import Else from './Else';
+export { default as If } from './If';
+export { default as ElseIf } from './ElseIf';
+export { default as Else } from './Else';
 
-export {
-    If,
-    ElseIf,
-    Else,
-};
+export { default as Try } from './Try';
+export { default as Catch } from './Catch';
