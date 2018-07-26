@@ -1,11 +1,11 @@
 import { ReactType } from 'react';
 
-const areComponentsEqual = (alice: ReactType, bob: ReactType) => {
+const areComponentsEqual = <P extends {}>(alice: ReactType<P>) => (bob: ReactType): bob is typeof alice => {
     if (!module.hot || process.env.NODE_ENV === 'production') {
         return alice === bob;
     }
 
-    const unwrapProxy = (type: ReactType) => {
+    const unwrapProxy = <P extends {}>(type: ReactType<P>) => {
 
         /**
          * Call a magic method to get the original component.
@@ -15,7 +15,7 @@ const areComponentsEqual = (alice: ReactType, bob: ReactType) => {
         const PREFIX = '__reactstandin__';
         const UNWRAP_PROXY = `${PREFIX}getCurrent`;
 
-        return typeof (type as any)[UNWRAP_PROXY] === 'function' ? (type as any)[UNWRAP_PROXY]() : type;
+        return typeof (type as any)[UNWRAP_PROXY] === 'function' ? (type as any)[UNWRAP_PROXY]() as ReactType<P> : type;
     };
 
     /**

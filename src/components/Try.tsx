@@ -1,6 +1,6 @@
 import { PureComponent, ErrorInfo } from 'react';
 
-import { getInternalFiber, areComponentsEqual } from './utils';
+import { getInternalFiber, areComponentsEqual } from '../utils';
 
 import { Catch } from '.';
 
@@ -9,7 +9,7 @@ class Try extends PureComponent {
         const current = getInternalFiber(this);
         const { sibling } = current;
 
-        if (!sibling || !areComponentsEqual(sibling.type, Catch)) {
+        if (!sibling || !areComponentsEqual(Catch)(sibling.type)) {
             return;
         }
 
