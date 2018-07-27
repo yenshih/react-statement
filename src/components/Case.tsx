@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import { getInternalFiber, areComponentsEqual } from '../utils';
+import { areComponentsEqual, getInternalFiber } from '../utils';
 
 import { BranchProps } from './Branch';
 

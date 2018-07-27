@@ -2,13 +2,10 @@ import compose from 'lodash.flowright';
 
 import { BranchFiber } from '../types';
 
-import { findFiber, iterateFibers } from '.';
+import { findFiber } from '.';
 
-const updateBranch = (matching: boolean) => (fiber: BranchFiber) =>
-    fiber.stateNode.setState(state => ({ ...state, matching }));
-
-const disableBranch = updateBranch(false);
-const enableBranch = updateBranch(true);
+const updateBranch = (matching: boolean) => (fiber: BranchFiber | null) =>
+    fiber && fiber.stateNode.setState(state => ({ ...state, matching }));
 
 /*
  * This(These) branch(es) is currently being enabled.
@@ -16,10 +13,7 @@ const enableBranch = updateBranch(true);
  * Disable that(those) branch(es).
  */
 export const disableBranches = (needsToDisable: (fiber: BranchFiber) => boolean) => compose(
-    iterateFibers({
-        criterion: needsToDisable,
-        iteratee: disableBranch,
-    }),
+    updateBranch(false),
     findFiber(needsToDisable),
 );
 
@@ -29,9 +23,6 @@ export const disableBranches = (needsToDisable: (fiber: BranchFiber) => boolean)
  * Enable that branch.
  */
 export const enableBranches = (needsToEnable: (fiber: BranchFiber) => boolean) => compose(
-    iterateFibers({
-        criterion: needsToEnable,
-        iteratee: enableBranch,
-    }),
+    updateBranch(true),
     findFiber(needsToEnable),
 );
